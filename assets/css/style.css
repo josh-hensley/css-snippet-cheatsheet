@@ -1,0 +1,105 @@
+:root {
+    --primary-color: #023a3a;
+    --secondary-color: #4d022d;
+    --accent-color: #00ffb1;
+    --background-dark: #2f006f;
+    --background-gradient: linear-gradient(#e500ff, #5e00ff);
+    --light-text-color: #e500ff;
+    --dark-text-color: #000000;
+    --white-text-color: #fff;
+    --border-radius: 10px;
+    --transition-height: height .5s ease-in-out;
+    --fade-in: opacity 2s ease-in;
+    --box-shadow: ;
+}
+
+* {
+    text-align: center;
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--light-text-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    border: dashed 2px var(--accent-color);
+    margin: 50px;
+    width: 300px;
+    height: 0px;
+    transition: var(--transition-height);
+}
+
+.card:hover {
+    height: 500px;
+}
+
+
+.card:hover .card-description, .card:hover .card-code {
+    display: block;
+}
+
+.card:hover .card-description p, .card:hover .card-code pre {
+    opacity: 1;
+}
+
+.card:hover .card-title{
+    color: var(--white-text-color);
+}
+
+.card-description {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    top: -40px;
+    height: 5%;
+    display: none;
+}
+
+.card-description p {
+    text-align: left;
+    transition: var(--fade-in);
+    opacity: 0;
+}
+
+.card-title {
+    border: solid var(--accent-color);
+    border-radius: var(--border-radius);
+    position: relative;
+    top: -40px;
+    width: 90%;
+    margin: 0 auto;
+    background-color: var(--background-dark);
+}
+
+.card-code {
+    background-image: var(--background-gradient);
+    border-radius: var(--border-radius);
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 10px;
+    display: none;
+}
+
+.card-code pre{
+    text-align:left;
+    font-family: 'Courier New', Courier, monospace;
+    text-wrap: wrap;
+    color: var(--dark-text-color);
+    font-size: 20px;
+    transition: var(--fade-in);
+    opacity: 0;
+}
+
+@media screen and (max-width: 768px){
+    .card {
+        width: 350px;
+    }
+}
