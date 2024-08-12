@@ -8,9 +8,8 @@
     --dark-text-color: #000000;
     --white-text-color: #fff;
     --border-radius: 10px;
-    --transition-height: height .5s ease-in-out;
-    --fade-in: opacity 2s ease-in;
-    --box-shadow: ;
+    --transition: all .5s ease-in-out;
+    --box-shadow: 1px 1px 10px inset var(--accent-color), -1px -1px 5px inset var(--accent-color);;
 }
 
 * {
@@ -31,23 +30,13 @@ body {
 
 .card {
     border: dashed 2px var(--accent-color);
-    margin: 50px;
-    width: 300px;
-    height: 0px;
-    transition: var(--transition-height);
+    margin-top: 50px;
+    width: 28%;
+    transition: var(--transition);
 }
 
-.card:hover {
-    height: 500px;
-}
-
-
-.card:hover .card-description, .card:hover .card-code {
-    display: block;
-}
-
-.card:hover .card-description p, .card:hover .card-code pre {
-    opacity: 1;
+.card:hover, .card:hover .card-title {
+    box-shadow: var(--box-shadow);
 }
 
 .card:hover .card-title{
@@ -60,13 +49,10 @@ body {
     position: relative;
     top: -40px;
     height: 5%;
-    display: none;
 }
 
 .card-description p {
     text-align: left;
-    transition: var(--fade-in);
-    opacity: 0;
 }
 
 .card-title {
@@ -77,6 +63,7 @@ body {
     width: 90%;
     margin: 0 auto;
     background-color: var(--background-dark);
+    transition: var(--transition);
 }
 
 .card-code {
@@ -85,7 +72,6 @@ body {
     width: 90%;
     margin: 0 auto;
     padding: 0 10px;
-    display: none;
 }
 
 .card-code pre{
@@ -94,12 +80,16 @@ body {
     text-wrap: wrap;
     color: var(--dark-text-color);
     font-size: 20px;
-    transition: var(--fade-in);
-    opacity: 0;
+}
+
+@media screen and (max-width: 992px){
+    .card {
+        width: 48%;
+    }
 }
 
 @media screen and (max-width: 768px){
     .card {
-        width: 350px;
+        width: 90%;
     }
 }
